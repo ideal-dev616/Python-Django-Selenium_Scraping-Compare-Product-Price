@@ -1,0 +1,63 @@
+{% extends 'layout/login.html' %} {% block body %}
+<div class="m-grid m-grid--hor m-grid--root m-page">
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-1" id="m_login" style="background-image: url(/static/app/media/img//bg/bg-1.jpg);">
+        <div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
+            <div class="m-login__container">
+                <div class="m-login__signup">
+                    <div class="m-login__head">
+                        <h3 class="m-login__title">
+                            Sign Up
+                        </h3>
+                        <div class="m-login__desc">
+                            Enter your details to create your account:
+                        </div>
+                    </div>
+                    <form class="m-login__form m-form" role="form" method="POST" action="{% url 'signuppage' %}">
+                        {% csrf_token %}
+                        {% if signup_success == "no" %}
+                        <div class="m-alert m-alert--outline alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                            <span>Incorrect passwords are matched. Please try again.</span>
+                        </div>
+                        {% elif signup_success == "exist" %}
+                        <div class="m-alert m-alert--outline alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                            <span>Username is already existed. Please try with another one.</span>
+                        </div>
+                        {% endif %}
+                        <div class="form-group m-form__group">
+                            <input class="form-control m-input" type="text" placeholder="Username" name="username" required>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <input class="form-control m-input" type="email" placeholder="Email" name="email" autocomplete="off" required>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <input class="form-control m-input" type="password" placeholder="Password" name="password" required>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <input class="form-control m-input m-login__form-input--last" type="password" placeholder="Confirm Password" name="rpassword" required>
+                        </div>
+                        <div class="m-login__form-action">
+                            <button type="submit" id="m_login_signup_submit" class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn m-login__btn--primary">
+                                Sign Up
+                            </button>
+                            &nbsp;&nbsp;
+                            <a href="{% url 'loginpage' %}" class="btn m-btn m-btn--pill m-btn--custom m-btn--air m-login__btn">
+                                Cancel
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block javascript %}
+<script type="text/javascript">
+    var login = $('#m_login');
+    jQuery(document).ready(function() {
+        login.addClass('m-login--signup');
+        login.find('.m-login__signup').animateClass('flipInX animated');
+    });
+</script>
+{% endblock %}

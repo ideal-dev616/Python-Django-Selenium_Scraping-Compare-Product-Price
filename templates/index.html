@@ -1,0 +1,547 @@
+{% extends 'layout/app.html' %} {% load static %} {% block body %}
+<div class="ajax_waiting"><div style="color: white;font-size: 18px;font-weight: 600;margin-bottom: 30px;">Please wait for a few seconds ...</div><div class="m-loader m-loader--light" style="width: 30px; display: inline-block;"></div></div>
+<div class="m-grid m-grid--hor m-grid--root m-page">
+    <header class="m-grid__item		m-header "  data-minimize="minimize" data-minimize-offset="200" data-minimize-mobile-offset="200" >
+        <div class="m-header__top">
+            <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+                <div class="m-stack m-stack--ver m-stack--desktop">
+                    <div class="m-stack__item m-brand">
+                        <div class="m-stack m-stack--ver m-stack--general m-stack--inline">
+                            <div class="m-stack__item m-stack__item--middle m-brand__logo">
+                                <a href="{% url 'index' %}" class="m-brand__logo-wrapper">
+                                    <img alt="" src="/static/demo/demo5/media/img/logo/logo.png"/>
+                                </a>
+                            </div>
+                            <div class="m-stack__item m-stack__item--middle m-brand__tools">
+                                <a id="m_aside_header_menu_mobile_toggle" href="javascript:;" class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
+                                    <span></span>
+                                </a>
+                                <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
+                                    <i class="flaticon-more"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+                        <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+                            <div class="m-stack__item m-topbar__nav-wrapper">
+                                <ul class="m-topbar__nav m-nav m-nav--inline">
+                                    <li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" data-dropdown-toggle="click" data-dropdown-persistent="true">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle" id="m_topbar_notification_icon">
+                                            <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
+                                            <span class="m-nav__link-icon">
+                                                <span class="m-nav__link-icon-wrapper">
+                                                    <i class="flaticon-music-2"></i>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <div class="m-dropdown__wrapper">
+                                            <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
+                                            <div class="m-dropdown__inner">
+                                                <div class="m-dropdown__body">
+                                                    <div class="m-dropdown__content">
+                                                        <ul class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
+                                                            <li class="nav-item m-tabs__item">
+                                                                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#topbar_notifications_notifications" role="tab">
+                                                                    Alerts
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active" id="topbar_notifications_notifications" role="tabpanel">
+                                                                <div class="m-scrollable" data-scrollable="true" data-max-height="250" data-mobile-max-height="200">
+                                                                    <div class="m-list-timeline m-list-timeline--skin-light">
+                                                                        <div class="m-list-timeline__items">
+                                                                            <div class="m-list-timeline__item">
+                                                                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                                                                <span class="m-list-timeline__text">
+                                                                                    12 new users registered
+                                                                                </span>
+                                                                                <span class="m-list-timeline__time">
+                                                                                    Just now
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="m-list-timeline__item">
+                                                                                <span class="m-list-timeline__badge"></span>
+                                                                                <span class="m-list-timeline__text">
+                                                                                    System shutdown
+                                                                                    <span class="m-badge m-badge--success m-badge--wide">
+                                                                                        pending
+                                                                                    </span>
+                                                                                </span>
+                                                                                <span class="m-list-timeline__time">
+                                                                                    14 mins
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" data-dropdown-toggle="click">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle">
+                                            {% if username != '' %}
+                                            <span class="m-topbar__welcome">
+                                                Hello,&nbsp;&nbsp;
+                                            </span>
+                                            <span class="m-topbar__username">
+                                                {{user}}&nbsp;&nbsp;
+                                            </span>
+                                            {% elif username == '' %}
+                                            <span class="m-topbar__welcome">
+                                                Hello&nbsp;&nbsp;
+                                            </span>
+                                            {% endif %}
+                                            <span class="m-topbar__userpic">
+                                                <img src="/static/app/media/img/users/user3.jpg" class="m--img-rounded m--marginless m--img-centered" alt=""/>
+                                            </span>
+                                        </a>
+                                        <div class="m-dropdown__wrapper">
+                                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                            <div class="m-dropdown__inner">
+                                                <div class="m-dropdown__body">
+                                                    <div class="m-dropdown__content">
+                                                        <ul class="m-nav m-nav--skin-light">
+                                                            {% if username != '' %}
+                                                            <li class="m-nav__item">
+                                                                <a href="profile.html" class="m-nav__link">
+                                                                    <i class="m-nav__link-icon flaticon-profile-1"></i>
+                                                                    <span class="m-nav__link-title">
+                                                                        <span class="m-nav__link-wrap">
+                                                                            <span class="m-nav__link-text">
+                                                                                My Profile
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="m-nav__item">
+                                                                <a href="profile.html" class="m-nav__link">
+                                                                    <i class="m-nav__link-icon flaticon-security"></i>
+                                                                    <span class="m-nav__link-text">
+                                                                        Security
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="m-nav__separator m-nav__separator--fit"></li>
+                                                            <li class="m-nav__item">
+                                                                <a href="{% url 'logout' %}" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                    Logout
+                                                                </a>
+                                                            </li>
+                                                            {% else %}
+                                                            <li class="m-nav__item">
+                                                                <a href="{% url 'loginpage' %}" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                    Signin
+                                                                </a>
+                                                            </li>
+                                                            {% endif %}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-header__bottom">
+            <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+                <div class="m-stack m-stack--ver m-stack--desktop">
+                    <div class="m-stack__item m-stack__item--middle m-stack__item--fluid">
+                        <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-light " id="m_aside_header_menu_mobile_close_btn">
+                            <i class="la la-close"></i>
+                        </button>
+                        <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light "  >
+                            <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
+                                <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel"  data-menu-submenu-toggle="click" aria-haspopup="true">
+                                    <a  href="#" class="m-menu__link m-menu__toggle">
+                                        <span class="m-menu__item-here"></span>
+                                        
+                                        <span class="m-menu__link-text">
+                                            <i class="la la-reorder" style="vertical-align:middle;font-size:1.9rem;margin-top:-2px;margin-right:10px;"></i>CATEGORIES
+                                        </span>
+                                        <i class="m-menu__hor-arrow la la-angle-down"></i>
+                                        <i class="m-menu__ver-arrow la la-angle-right"></i>
+                                    </a>
+                                    <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
+                                        <span class="m-menu__arrow m-menu__arrow--adjust"></span>
+                                        <ul class="m-menu__subnav">
+                                            {% for item in category %}
+                                            <li class="m-menu__item "  aria-haspopup="true">
+                                                <a href="javascript:void(0)" value="{{ item.categ_main }}" class="m-menu__link category_menu">
+                                                    <i class="m-menu__link-icon fa fa-circle" style="font-size: 10px;" aria-hidden="true"></i>
+                                                    <span class="m-menu__link-title">
+                                                        <span class="m-menu__link-wrap">
+                                                            <span class="m-menu__link-text">
+                                                                {{ item.categ_main }}
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="m-menu__item  m-menu__item--active" style="background-color: #a91004;"  aria-haspopup="true">
+                                    <a  href="{% url 'index' %}" class="m-menu__link ">
+                                        <span class="m-menu__item-here"></span>
+                                        <span class="m-menu__link-text">
+                                            <i class="la la-sellsy" style="vertical-align:middle;font-size:1.9rem;margin-top:-2px;"></i>&nbsp;&nbsp;Comparison
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-menu__item  m-menu__item--active"  aria-haspopup="true">
+                                    <a  href="{% url 'discounts' %}" class="m-menu__link ">
+                                        <span class="m-menu__link-text">
+                                            <i class="flaticon-interface-9" style="vertical-align:middle;font-size:1.9rem;margin-top:-2px;"></i>&nbsp;&nbsp;Discounts
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-menu__item  m-menu__item--active"  aria-haspopup="true">
+                                    <a  href="{% url 'favourites' %}" class="m-menu__link ">
+                                        <span class="m-menu__link-text">
+                                            <i class="la la-heart-o" style="vertical-align:middle;font-size:1.9rem;margin-top:-2px;"></i>&nbsp;&nbsp;Favourites
+                                        </span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="m-stack__item m-stack__item--middle m-dropdown m-dropdown--arrow m-dropdown--large m-dropdown--mobile-full-width m-dropdown--align-right m-dropdown--skin-light m-header-search m-header-search--expandable m-header-search--skin-" id="m_quicksearch" data-search-type="default">
+                        <div class="row">
+                            <div class="col-xl-9">
+                                <form class="m-header-search__form">
+                                    <div class="m-header-search__wrapper">
+                                        <span class="m-header-search__input-wrapper">
+                                            <input autocomplete="off" type="text" name="q" class="m-header-search__input" value="" placeholder="What you are looking for?" id="m_quicksearch_input">
+                                        </span>
+                                        <span class="m-header-search__icon-close" id="m_quicksearch_close">
+                                            <i class="la la-remove"></i>
+                                        </span>
+                                        <span class="m-header-search__icon-cancel" id="m_quicksearch_cancel">
+                                            <i class="la la-remove"></i>
+                                        </span>
+                                        <span class="m-header-search__icon-search" id="m_quicksearch_search">
+                                            <i class="flaticon-search-magnifier-interface-symbol"></i>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-xl-3">
+                                <a href="" class="" style="color:white;text-decoration: none;" data-toggle="modal" data-target="#m_select2_modal">
+                                    <i class="flaticon-list" style="vertical-align:middle;font-size:1.9rem;margin-top:-2px;margin-right:10px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="m-dropdown__wrapper">
+                            <div class="m-dropdown__arrow m-dropdown__arrow--center"></div>
+                            <div class="m-dropdown__inner">
+                                <div class="m-dropdown__body">
+                                    <div class="m-dropdown__scrollable m-scrollable" data-max-height="300" data-mobile-max-height="200">
+                                        <div class="m-dropdown__content m-list-search m-list-search--skin-light"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor-desktop m-grid--desktop m-body">
+        <div class="m-grid__item m-grid__item--fluid  m-grid m-grid--ver	m-container m-container--responsive m-container--xxl m-page__container">
+            <div class="m-grid__item m-grid__item--fluid m-wrapper">
+                <div class="m-subheader ">
+                    <div class="d-flex align-items-center">
+                        <div class="mr-auto">
+                            <h3 class="m-subheader__title m-subheader__title--separator">
+                                Price Comparison
+                            </h3>
+                            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                                <li class="m-nav__item m-nav__item--home">
+                                    <a href="javascript:void(0)" class="m-nav__link m-nav__link--icon">
+                                        <i class="la la-balance-scale"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-content">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="m-portlet m-portlet--mobile">
+                                <div class="m-portlet__head">
+                                    <div class="m-portlet__head-caption">
+                                        <div class="m-portlet__head-title">
+                                            <h3 class="m-portlet__head-text">
+                                                <i class="flaticon-clipboard" style="font-size: 1.6rem;"></i>&nbsp;&nbsp;Products List
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div class="products_inner_search">
+                                        <div class="m-form__group row align-items-center">
+                                            <div class="col-md-5"></div>
+                                            <div class="col-md-7">
+                                                <div class="m-input-icon m-input-icon--right">
+                                                    <span class="m-input-icon__icon m-input-icon__icon--right">
+                                                        <span>
+                                                            <i class="flaticon-search-magnifier-interface-symbol"></i>
+                                                        </span>
+                                                    </span>
+                                                    <input type="text" class="form-control m-input m-input--solid" placeholder="Search selected products..." id="generalSearch">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__body">
+                                    <table class="m-datatable" id="html_table" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:10%">
+                                                    Products
+                                                </th>
+                                                <th style="width:30%">
+                                                    Name
+                                                </th>
+                                                <th style="width:10%">
+                                                    Price
+                                                </th>
+                                                <th style="width:15%">
+                                                    Discount
+                                                </th>
+                                                <th style="width:15%">
+                                                    Supermaket
+                                                </th>
+                                                <th style="width:15%">
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-scroll-top m-scroll-top--skin-top" data-toggle="m-scroll-top" data-scroll-offset="500" data-scroll-speed="300">
+    <i class="la la-arrow-up"></i>
+</div>
+<div class="modal fade" id="m_select2_modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">
+                    Write here your list of products separated by commas: 
+                </h5>
+                <button type="button" id="btn_close_multisearch_dialog" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="la la-remove"></span>
+                </button>
+            </div>
+            <form class="m-form m-form--fit m-form--label-align-right">
+                <div class="modal-body">
+                    <div class="form-group m-form__group row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <span class="m-header-search__input-wrapper">
+                                <input style="width:100%;height:35px;padding: 0px 10px;" autocomplete="off" type="text" name="q" class="m-header-search__input" value="" placeholder="example: bread, milk, butter..." id="m_multisearch_input">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary m-btn" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" id="btn_multisearch" class="btn btn-brand m-btn" data-dismiss="modal">
+                        <i class="la la-search"></i>  Search List
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="m_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Add product to the list.
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        &times;
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group" style="display:flex;">
+                        <input type="text" class="form-control" id="tf_new_list" placeholder="Create a new list to add the product there.">
+                        <button type="button" id="btn_new_list" style="margin-left: 5px;" class="btn btn-brand" data-dismiss="modal">
+                            <i class="flaticon-plus"></i>&nbsp;&nbsp;Add
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="form-control-label">
+                            Select an existing list:
+                        </label>
+                        <div>
+                            <select class="form-control m-select2" style="width:100%;" id="m_select2_2" name="param">
+                                {% for item in fav_lists %}
+                                <option value="Beer">
+                                    {{item.fav_list}}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary m-btn" data-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="button" id="existing_list_add" class="btn btn-brand m-btn">
+                    <i class="flaticon-plus"></i>&nbsp;&nbsp;Add
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block javascript %} 
+<script>
+    function search(category, idx) {
+        if (category != ""){
+            $(".m-subheader__breadcrumbs").html(`
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="javascript:void(0)" class="m-nav__link m-nav__link--icon">
+                        <i class="la la-balance-scale"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="javascript:void(0)" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            ` + category + `
+                        </span>
+                    </a>
+                </li>
+            `);
+            $(".ajax_waiting").css("display","block");
+            $.ajax({
+                url: '/ajax/get_data_by_categ/',
+                data: {
+                'category': category,
+                'idx': idx
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log("success")
+                    $(".ajax_waiting").css("display","none");
+                    $(".m-portlet__body").html(`
+                        <table class="m-datatable" id="html_table" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Products</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Discount</th>
+                                    <th>Supermaket</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>` + data.data + `</tbody>
+                        </table>
+                    `);
+                    var DatatableHtmlTableDemo = function() {
+                        var demo = function() {
+                            var datatable = $('.m-datatable').mDatatable({
+                                data: {
+                                    saveState: {cookie: false},
+                                },
+                                search: {
+                                    input: $('#generalSearch'),
+                                },
+                            });
+                        };
+
+                        return {
+                            init: function() {
+                                demo();
+                            },
+                        };
+                    }();
+                    DatatableHtmlTableDemo.init();
+                }
+            });
+        }
+    }
+
+    function insert_list(nlist) {
+        if (nlist != ""){
+            $.ajax({
+                url: '/ajax/add_favourite_list/',
+                data: {
+                'list': nlist
+                },
+                dataType: 'json',
+                success: function (data) {
+                    console.log("success")
+                }
+            });
+        }
+    }
+
+    $(document).ready(function() {
+        $(".category_menu").on('click', function() {
+            search($(this).attr("value"), 1);
+        });
+        $("#m_quicksearch_input").keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                event.preventDefault();
+                search($(this).val(), 2);
+            }
+        });
+        $("#m_multisearch_input").keypress(function(event){
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                event.preventDefault();
+                $("#btn_close_multisearch_dialog").trigger('click');
+                search($(this).val(), 3);
+            }
+        });
+        
+        $("#btn_multisearch").on('click',function(event){
+            search($("#m_multisearch_input").val(), 3);
+        });
+
+        $("#btn_new_list").on('click',function(event){
+            insert_list($("#tf_new_list").val());
+        });
+    });
+</script>
+{% endblock %}

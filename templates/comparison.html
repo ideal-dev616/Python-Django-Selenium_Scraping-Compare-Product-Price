@@ -1,0 +1,577 @@
+{% extends 'layout/app.html' %} {% load static %} {% block body %}
+<div class="m-grid m-grid--hor m-grid--root m-page">
+    <header class="m-grid__item		m-header "  data-minimize="minimize" data-minimize-offset="200" data-minimize-mobile-offset="200" >
+        <div class="m-header__top">
+            <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+                <div class="m-stack m-stack--ver m-stack--desktop">
+                    <div class="m-stack__item m-brand">
+                        <div class="m-stack m-stack--ver m-stack--general m-stack--inline">
+                            <div class="m-stack__item m-stack__item--middle m-brand__logo">
+                                <a href="../index.html" class="m-brand__logo-wrapper">
+                                    <img alt="" src="../assets/demo/demo5/media/img/logo/logo.png"/>
+                                </a>
+                            </div>
+                            <div class="m-stack__item m-stack__item--middle m-brand__tools">
+                                <a id="m_aside_header_menu_mobile_toggle" href="javascript:;" class="m-brand__icon m-brand__toggler m--visible-tablet-and-mobile-inline-block">
+                                    <span></span>
+                                </a>
+                                <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
+                                    <i class="flaticon-more"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
+                        <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+                            <div class="m-stack__item m-topbar__nav-wrapper">
+                                <ul class="m-topbar__nav m-nav m-nav--inline">
+                                    <li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" data-dropdown-toggle="click" data-dropdown-persistent="true">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle" id="m_topbar_notification_icon">
+                                            <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
+                                            <span class="m-nav__link-icon">
+                                                <span class="m-nav__link-icon-wrapper">
+                                                    <i class="flaticon-music-2"></i>
+                                                </span>
+                                            </span>
+                                        </a>
+                                        <div class="m-dropdown__wrapper">
+                                            <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
+                                            <div class="m-dropdown__inner">
+                                                <div class="m-dropdown__body">
+                                                    <div class="m-dropdown__content">
+                                                        <ul class="nav nav-tabs m-tabs m-tabs-line m-tabs-line--brand" role="tablist">
+                                                            <li class="nav-item m-tabs__item">
+                                                                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#topbar_notifications_notifications" role="tab">
+                                                                    Alerts
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                        <div class="tab-content">
+                                                            <div class="tab-pane active" id="topbar_notifications_notifications" role="tabpanel">
+                                                                <div class="m-scrollable" data-scrollable="true" data-max-height="250" data-mobile-max-height="200">
+                                                                    <div class="m-list-timeline m-list-timeline--skin-light">
+                                                                        <div class="m-list-timeline__items">
+                                                                            <div class="m-list-timeline__item">
+                                                                                <span class="m-list-timeline__badge -m-list-timeline__badge--state-success"></span>
+                                                                                <span class="m-list-timeline__text">
+                                                                                    12 new users registered
+                                                                                </span>
+                                                                                <span class="m-list-timeline__time">
+                                                                                    Just now
+                                                                                </span>
+                                                                            </div>
+                                                                            <div class="m-list-timeline__item">
+                                                                                <span class="m-list-timeline__badge"></span>
+                                                                                <span class="m-list-timeline__text">
+                                                                                    System shutdown
+                                                                                    <span class="m-badge m-badge--success m-badge--wide">
+                                                                                        pending
+                                                                                    </span>
+                                                                                </span>
+                                                                                <span class="m-list-timeline__time">
+                                                                                    14 mins
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" data-dropdown-toggle="click">
+                                        <a href="#" class="m-nav__link m-dropdown__toggle">
+                                            <span class="m-topbar__welcome">
+                                                Hello,&nbsp;&nbsp;
+                                            </span>
+                                            <span class="m-topbar__username">
+                                                Diana&nbsp;&nbsp;
+                                            </span>
+                                            <span class="m-topbar__userpic">
+                                                <img src="../assets/app/media/img/users/user3.jpg" class="m--img-rounded m--marginless m--img-centered" alt=""/>
+                                            </span>
+                                        </a>
+                                        <div class="m-dropdown__wrapper">
+                                            <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                            <div class="m-dropdown__inner">
+                                                <div class="m-dropdown__body">
+                                                    <div class="m-dropdown__content">
+                                                        <ul class="m-nav m-nav--skin-light">
+                                                            <li class="m-nav__section m--hide">
+                                                                <span class="m-nav__section-text">
+                                                                    Section
+                                                                </span>
+                                                            </li>
+                                                            <li class="m-nav__item">
+                                                                <a href="profile.html" class="m-nav__link">
+                                                                    <i class="m-nav__link-icon flaticon-profile-1"></i>
+                                                                    <span class="m-nav__link-title">
+                                                                        <span class="m-nav__link-wrap">
+                                                                            <span class="m-nav__link-text">
+                                                                                My Profile
+                                                                            </span>
+                                                                        </span>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="m-nav__item">
+                                                                <a href="profile.html" class="m-nav__link">
+                                                                    <i class="m-nav__link-icon flaticon-calendar"></i>
+                                                                    <span class="m-nav__link-text">
+                                                                        Register Coupons
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="m-nav__item">
+                                                                <a href="profile.html" class="m-nav__link">
+                                                                    <i class="m-nav__link-icon flaticon-security"></i>
+                                                                    <span class="m-nav__link-text">
+                                                                        Security
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="m-nav__separator m-nav__separator--fit"></li>
+                                                            <li class="m-nav__item">
+                                                                <a href="../pages/user/login.html" class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                    Logout
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-header__bottom">
+            <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+                <div class="m-stack m-stack--ver m-stack--desktop">
+                    <div class="m-stack__item m-stack__item--middle m-stack__item--fluid">
+                        <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-light " id="m_aside_header_menu_mobile_close_btn">
+                            <i class="la la-close"></i>
+                        </button>
+                        <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light "  >
+                            <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
+                                <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel"  data-menu-submenu-toggle="click" aria-haspopup="true">
+                                    <a  href="#" class="m-menu__link m-menu__toggle">
+                                        <span class="m-menu__item-here"></span>
+                                        
+                                        <span class="m-menu__link-text">
+                                            <i class="la la-reorder" style="vertical-align:middle;font-size:1.9rem;margin-top:-2px;margin-right:10px;"></i>CATEGORIES
+                                        </span>
+                                        <i class="m-menu__hor-arrow la la-angle-down"></i>
+                                        <i class="m-menu__ver-arrow la la-angle-right"></i>
+                                    </a>
+                                    <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
+                                        <span class="m-menu__arrow m-menu__arrow--adjust"></span>
+                                        <ul class="m-menu__subnav">
+                                            <li class="m-menu__item "  aria-haspopup="true">
+                                                <a  href="inner.html" class="m-menu__link ">
+                                                    <i class="m-menu__link-icon flaticon-diagram"></i>
+                                                    <span class="m-menu__link-title">
+                                                        <span class="m-menu__link-wrap">
+                                                            <span class="m-menu__link-text">
+                                                                Generate Reports
+                                                            </span>
+                                                            <span class="m-menu__link-badge">
+                                                                <span class="m-badge m-badge--success">
+                                                                    2
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="m-menu__item  m-menu__item--submenu"  data-menu-submenu-toggle="hover" data-redirect="true" aria-haspopup="true">
+                                                <a  href="#" class="m-menu__link m-menu__toggle">
+                                                    <i class="m-menu__link-icon flaticon-business"></i>
+                                                    <span class="m-menu__link-text">
+                                                        Manage Orders
+                                                    </span>
+                                                    <i class="m-menu__hor-arrow la la-angle-right"></i>
+                                                    <i class="m-menu__ver-arrow la la-angle-right"></i>
+                                                </a>
+                                                <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right">
+                                                    <span class="m-menu__arrow "></span>
+                                                    <ul class="m-menu__subnav">
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Latest Orders
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Pending Orders
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Processed Orders
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Delivery Reports
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Payments
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Customers
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="m-menu__item  m-menu__item--submenu"  data-menu-submenu-toggle="hover" data-redirect="true" aria-haspopup="true">
+                                                <a  href="#" class="m-menu__link m-menu__toggle">
+                                                    <i class="m-menu__link-icon flaticon-chat-1"></i>
+                                                    <span class="m-menu__link-text">
+                                                        Customer Feedbacks
+                                                    </span>
+                                                    <i class="m-menu__hor-arrow la la-angle-right"></i>
+                                                    <i class="m-menu__ver-arrow la la-angle-right"></i>
+                                                </a>
+                                                <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--right">
+                                                    <span class="m-menu__arrow "></span>
+                                                    <ul class="m-menu__subnav">
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Customer Feedbacks
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Supplier Feedbacks
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Reviewed Feedbacks
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Resolved Feedbacks
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                            <a  href="inner.html" class="m-menu__link ">
+                                                                <span class="m-menu__link-text">
+                                                                    Feedback Reports
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="m-menu__item "  data-redirect="true" aria-haspopup="true">
+                                                <a  href="inner.html" class="m-menu__link ">
+                                                    <i class="m-menu__link-icon flaticon-users"></i>
+                                                    <span class="m-menu__link-text">
+                                                        Register Member
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="m-menu__item  m-menu__item--active" style="background-color: #a91004;"  aria-haspopup="true">
+                                    <a  href="../index.html" class="m-menu__link ">
+                                        <span class="m-menu__item-here"></span>
+                                        <span class="m-menu__link-text">
+                                            <i class="la la-sellsy" style="vertical-align:middle;font-size:1.9rem;margin-top:-2px;"></i>&nbsp;&nbsp;Comparison
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-menu__item  m-menu__item--active"  aria-haspopup="true">
+                                    <a  href="discounts.html" class="m-menu__link ">
+                                        <span class="m-menu__link-text">
+                                            <i class="flaticon-interface-9" style="vertical-align:middle;font-size:1.9rem;margin-top:-2px;"></i>&nbsp;&nbsp;Discounts
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-menu__item  m-menu__item--active"  aria-haspopup="true">
+                                    <a  href="favourites.html" class="m-menu__link ">
+                                        <span class="m-menu__link-text">
+                                            <i class="la la-heart-o" style="vertical-align:middle;font-size:1.9rem;margin-top:-2px;"></i>&nbsp;&nbsp;Favourites
+                                        </span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <div class="m-stack__item m-stack__item--middle m-dropdown m-dropdown--arrow m-dropdown--large m-dropdown--mobile-full-width m-dropdown--align-right m-dropdown--skin-light m-header-search m-header-search--expandable m-header-search--skin-" id="m_quicksearch" data-search-type="default">
+                        <div class="row">
+                            <div class="col-xl-9">
+                                <form class="m-header-search__form">
+                                    <div class="m-header-search__wrapper">
+                                        <span class="m-header-search__input-wrapper">
+                                            <input autocomplete="off" type="text" name="q" class="m-header-search__input" value="" placeholder="What you are looking for?" id="m_quicksearch_input">
+                                        </span>
+                                        <span class="m-header-search__icon-close" id="m_quicksearch_close">
+                                            <i class="la la-remove"></i>
+                                        </span>
+                                        <span class="m-header-search__icon-cancel" id="m_quicksearch_cancel">
+                                            <i class="la la-remove"></i>
+                                        </span>
+                                        <span class="m-header-search__icon-search" id="m_quicksearch_search">
+                                            <i class="flaticon-search-magnifier-interface-symbol"></i>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-xl-3">
+                                <a href="" class="" style="color:white;text-decoration: none;" data-toggle="modal" data-target="#m_select2_modal">
+                                    <i class="flaticon-list" style="vertical-align:middle;font-size:1.9rem;margin-top:-2px;margin-right:10px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="m-dropdown__wrapper">
+                            <div class="m-dropdown__arrow m-dropdown__arrow--center"></div>
+                            <div class="m-dropdown__inner">
+                                <div class="m-dropdown__body">
+                                    <div class="m-dropdown__scrollable m-scrollable" data-max-height="300" data-mobile-max-height="200">
+                                        <div class="m-dropdown__content m-list-search m-list-search--skin-light"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor-desktop m-grid--desktop m-body">
+        <div class="m-grid__item m-grid__item--fluid  m-grid m-grid--ver	m-container m-container--responsive m-container--xxl m-page__container">
+            <div class="m-grid__item m-grid__item--fluid m-wrapper">
+                <div class="m-subheader ">
+                    <div class="d-flex align-items-center">
+                        <div class="mr-auto">
+                            <h3 class="m-subheader__title m-subheader__title--separator">
+                                Price Comparison
+                            </h3>
+                            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                                <li class="m-nav__item m-nav__item--home">
+                                    <a href="#" class="m-nav__link m-nav__link--icon">
+                                        <i class="la la-balance-scale"></i>
+                                    </a>
+                                </li>
+                                <li class="m-nav__separator">
+                                    -
+                                </li>
+                                <li class="m-nav__item">
+                                    <a href="" class="m-nav__link">
+                                        <span class="m-nav__link-text">
+                                            Drinks
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="m-nav__separator">
+                                    -
+                                </li>
+                                <li class="m-nav__item">
+                                    <a href="" class="m-nav__link">
+                                        <span class="m-nav__link-text">
+                                            Beer
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-content">
+                    <div class="row">
+                        <div class="col-xl-3">
+                            <div class="m-portlet m-portlet--mobile">
+                                <div class="m-portlet__head" style="padding:2.2rem 2.2rem;">
+                                    <img src="https://ardiaqa.vteximg.com.br/arquivos/ids/224990-210-210/Cerveza-Miller-en-Lata-473-ml-_1.jpg?v=637224095687100000" style="border:1px dashed #dadada;margin-bottom: 20px;" width="100%" height="auto" alt="--Product--">
+                                    <h5>Canned Miller Beer 473 ml.</h5>
+                                    <h6 style="color:gray;margin-bottom: 20px;">Miller</h6>
+
+                                    <h6 class="oldprice_decoration">$83.29</h6>
+                                    <h3 style="color: #f4516b;">$70.79</h3>
+                                </div>
+                                <div class="m-portlet__body">
+                                    <a href="#" class="btn btn-info m-btn m-btn--custom m-btn--icon">
+                                        <span>
+                                            <i class="la la-cart-arrow-down"></i><span>Add to cart</span>
+                                        </span>
+                                    </a>
+                                    <a href="#" style="float:right;top:-3px;" class="btn m-btn m-btn--icon btn-lg m-btn--icon-only  m-btn--pill m-btn--air">
+                                        <i style="font-size: 2.5rem;" class="la la-heart-o"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9">
+                            <div class="m-portlet m-portlet--mobile">
+                                <div class="m-portlet__head">
+                                    <div class="m-portlet__head-caption">
+                                        <div class="m-portlet__head-title">
+                                            <h3 class="m-portlet__head-text">
+                                                <i class="flaticon-clipboard" style="font-size: 1.6rem;"></i>&nbsp;&nbsp;Best Price
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__body">
+                                    <table class="m-datatable" id="html_table" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th title="Field #1">
+                                                    Products
+                                                </th>
+                                                <th title="Field #2">
+                                                    Name
+                                                </th>
+                                                <th title="Field #4">
+                                                    Old Price
+                                                </th>
+                                                <th title="Field #5">
+                                                    Price
+                                                </th>
+                                                <th title="Field #8">
+                                                    Supermaket
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://ardiaqa.vteximg.com.br/arquivos/ids/224990-210-210/Cerveza-Miller-en-Lata-473-ml-_1.jpg?v=637224095687100000" width="80px" height="80px" alt="--Product--">
+                                                </td>
+                                                <td>
+                                                    Canned Miller Beer 473 ml.
+                                                </td>
+                                                <td>
+                                                    <div class="oldprice_decoration">$83.29</div>
+                                                </td>
+                                                <td>
+                                                    <div class="currentprice_decoration">$70.79</div>
+                                                </td>
+                                                <td>
+                                                    <img src="https://logos-download.com/wp-content/uploads/2016/05/Dia_logo_red-700x238.png" width="120px" height="40px" alt="--Supermarket--">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="https://ardiaqa.vteximg.com.br/arquivos/ids/224990-210-210/Cerveza-Miller-en-Lata-473-ml-_1.jpg?v=637224095687100000" width="80px" height="80px" alt="--Product--">
+                                                </td>
+                                                <td>
+                                                    Canned Miller Beer 473 ml.
+                                                </td>
+                                                <td>
+                                                    <div class="oldprice_decoration">$83.29</div>
+                                                </td>
+                                                <td>
+                                                    <div class="currentprice_decoration">$70.79</div>
+                                                </td>
+                                                <td>
+                                                    <img src="https://cdn.corporate.walmart.com/dims4/WMT/c2bbbe9/2147483647/strip/true/crop/2389x930+0+0/resize/1446x563!/quality/90/?url=https%3A%2F%2Fcdn.corporate.walmart.com%2Fd6%2Fe7%2F48e91bac4a8ca8f22985b3682370%2Fwalmart-logos-lockupwtag-horiz-blu-rgb.png" width="120px" height="40px" alt="--Supermarket--">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="m-scroll-top m-scroll-top--skin-top" data-toggle="m-scroll-top" data-scroll-offset="500" data-scroll-speed="300">
+    <i class="la la-arrow-up"></i>
+</div>
+<div class="modal fade" id="m_select2_modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="">
+                    Write here your list of products separated by commas: (example: bread, milk, butter...)
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="la la-remove"></span>
+                </button>
+            </div>
+            <form class="m-form m-form--fit m-form--label-align-right">
+                <div class="modal-body">
+                    <div class="form-group m-form__group row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <select class="form-control m-select2" id="m_select2_3_modal" name="param" multiple="multiple">
+                                <optgroup label="Drinks">
+                                    <option value="Cellar" selected>
+                                        Cellar
+                                    </option>
+                                    <option value="Waters">
+                                        Waters
+                                    </option>
+                                    <option value="Beers">
+                                        Beers
+                                    </option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary m-btn" data-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-brand m-btn">
+                        <i class="la la-search"></i>  Search List
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block javascript %}
+<script type="text/javascript" src="{% static 'demo/default/custom/components/datatables/base/html-table.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        $("#add_to_favorite").click(function(){
+            alert("add_to_favorite");
+        });
+    });
+</script>
+{% endblock %} {% block javascript %}

@@ -8,8 +8,8 @@ var Select2 = function() {
         });
 
         // nested
-        $('#m_select2_2, #m_select2_2_validate').select2({
-            placeholder: "Select a state"
+        $('#m_select2_existing_favitem, #m_select2_2_validate').select2({
+            placeholder: "Select a favourite list"
         });
 
         // multi select
@@ -156,7 +156,7 @@ var Select2 = function() {
 
             // nested
             $('#m_select2_2_modal').select2({
-                placeholder: "Select a state"
+                placeholder: "Select a favourite list"
             });
 
             // multi select

@@ -17,16 +17,15 @@ def get_category():
             posts.append({"categ_main": obj[0]})
     return posts
 
-@login_required
 def get_favourite_list(user_id):
     fav_list = []
     with connection.cursor() as cursor:
         cursor.execute("SELECT id, list_name, user_id FROM tbl_list WHERE user_id = " + str(user_id))
         for obj in cursor.fetchall():
-            fav_list.append({"user_id" : obj[0], "fav_list" : obj[1]})
+            fav_list.append({"list_id" : obj[0], "fav_list" : obj[1]})
+    print(fav_list)
     return fav_list
 
-@login_required
 def add_favourite_list(request):
     if request.method == 'GET':
         nlist = request.GET['list']
@@ -52,8 +51,7 @@ def get_data_by_categ(request):
             query = "SELECT a.image, a.product, a.price, a.discount, b.supermarket, b.id FROM tbl_products AS a LEFT JOIN tbl_category AS b ON a.category = b.id WHERE (b.categ_main LIKE '%" + categ[0].strip() + "%' OR b.categ_branch LIKE '%" + categ[0].strip() + "%' OR a.product LIKE '%" + categ[0].strip() + "%')"
             for i in range(1, len(categ)):
                 query += " AND (b.categ_main LIKE '%" + categ[i].strip() + "%' OR b.categ_branch LIKE '%" + categ[i].strip() + "%' OR a.product LIKE '%" + categ[i].strip() + "%')"
-            else:
-                query += "  LIMIT 3000"
+        query += "  LIMIT 10"
         cursor.execute(query)
         for item in cursor.fetchall():
             result += '<tr><td><img src="'+item[0]+'" width="110px" height="110px" alt="--Product--"></td>'
@@ -105,8 +103,8 @@ def index(request):
     if request.session.has_key('username'):
         posts = request.session['username']
         username = User.objects.filter(username=posts)
-        # user_id = User.objects.get(username=posts).pk
-        return render(request, 'index.html', {"username": username, "category" : get_category()})
+        user_id = User.objects.get(username=posts).pk
+        return render(request, 'index.html', {"username": username, "category" : get_category(), "fav_lists": get_favourite_list(user_id)})
     else:
         return render(request, 'index.html', {'username': '', "category" : get_category()})
 

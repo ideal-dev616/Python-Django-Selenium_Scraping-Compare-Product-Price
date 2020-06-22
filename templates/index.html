@@ -348,7 +348,7 @@
 <div class="m-scroll-top m-scroll-top--skin-top" data-toggle="m-scroll-top" data-scroll-offset="500" data-scroll-speed="300">
     <i class="la la-arrow-up"></i>
 </div>
-<div class="modal fade" id="m_select2_modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+<div class="modal fade" id="m_select2_modal" role="dialog" aria-labelledby="" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -381,7 +381,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="m_modal_4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="m_modal_4" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -407,9 +407,9 @@
                             Select an existing list:
                         </label>
                         <div>
-                            <select class="form-control m-select2" style="width:100%;" id="m_select2_2" name="param">
+                            <select class="form-control m-select2" style="width:100%;" id="m_select2_existing_favitem" name="param">
                                 {% for item in fav_lists %}
-                                <option value="Beer">
+                                <option value="{{item.list_id}}">
                                     {{item.fav_list}}
                                 </option>
                                 {% endfor %}
@@ -500,12 +500,14 @@
         }
     }
 
-    function insert_list(nlist) {
-        if (nlist != ""){
+    function insert_list(list_id) {
+        if (list_id != ""){
             $.ajax({
                 url: '/ajax/add_favourite_list/',
                 data: {
-                'list': nlist
+                'list_id': list_id,
+                'user_id': user_id,
+                'product_id': product_id
                 },
                 dataType: 'json',
                 success: function (data) {
@@ -539,8 +541,9 @@
             search($("#m_multisearch_input").val(), 3);
         });
 
-        $("#btn_new_list").on('click',function(event){
-            insert_list($("#tf_new_list").val());
+        $("#existing_list_add").on('click',function(event){
+            console.log($("#m_select2_existing_favitem").val());
+            // insert_list($("#tf_new_list").val());
         });
     });
 </script>

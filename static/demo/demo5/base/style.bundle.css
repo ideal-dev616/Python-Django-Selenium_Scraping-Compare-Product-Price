@@ -10072,7 +10072,7 @@ b, strong {
           .m-datatable.m-datatable--default > .m-datatable__table > .m-datatable__body .m-datatable__row-detail .m-datatable__detail .m-datatable__row > .m-datatable__cell:last-child {
             padding-left: 20px; }
   .m-datatable.m-datatable--default.m-datatable--error .m-datatable__body {
-    padding: 30px;
+    padding: 0px;
     text-align: center; }
   .m-datatable.m-datatable--default.m-datatable--lock > .m-datatable__table > .m-datatable__head > .m-datatable__lock,
   .m-datatable.m-datatable--default.m-datatable--lock > .m-datatable__table > .m-datatable__body > .m-datatable__lock,
